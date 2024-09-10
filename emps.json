@@ -1,0 +1,175 @@
+{
+    "akdaana": {
+        "versions": ["Акдаана", "акдаана", "АКДААНА"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "munara": {
+        "versions": ["Мунара", "мунара", "МУНАРА"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "aidana": {
+        "versions": ["Айдана", "айдана", "АЙДАНА"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "perishte": {
+        "versions": ["Периште", "периште", "ПЕРИШТЕ"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "nuriza": {
+        "versions": ["Нуриза", "нуриза", "НУРИЗА"],
+        "store_id": "667a67de8d522538ee0ba760",
+        "store_name": "Балапан Ош №1"
+    },
+    "fatima": {
+        "versions": ["Фатима", "фатима", "ФАТИМА"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "uulkan": {
+        "versions": ["Уулкан", "уулкан", "УУЛКАН"],
+        "store_id": "608931190bd70c702d0dbf6c",
+        "store_name": "Балапашка №2"
+    },
+    "begimai": {
+        "versions": ["Бегимай", "бегимай", "БЕГИМАЙ"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "symbat": {
+        "versions": ["Сымбат", "сымбат", "СЫМБАТ"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "meerimai": {
+        "versions": ["Мээримай", "мээримай", "МЭЭРИМАЙ", "ммэримай"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "akmaanai": {
+        "versions": ["Акмаанай", "акмаанай", "АКМААНАЙ"],
+        "store_id": "667a67de8d522538ee0ba760",
+        "store_name": "Балапан Ош №1"
+    },
+    "aigul": {
+        "versions": ["Айгүл", "айгул", "АЙГҮЛ"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "gulnaz": {
+        "versions": ["Гүлназ", "гулназ", "ГҮЛНАЗ", "Гyлназ"],
+        "store_id": "608931190bd70c702d0dbf6c",
+        "store_name": "Балапашка №2"
+    },
+    "anar": {
+        "versions": ["Анар", "анар", "АНАР"],
+        "store_id": "608931190bd70c702d0dbf6c",
+        "store_name": "Балапашка №2"
+    },
+    "dinara": {
+        "versions": ["Динара", "динара", "ДИНАРА"],
+        "store_id": "6187a2f023e410447a333bd0",
+        "store_name": "Балапан Анар №4"
+    },
+    "tansuluu": {
+        "versions": ["Тансулуу", "тансулуу", "ТАНСУЛУУ"],
+        "store_id": "6187a2f023e410447a333bd0",
+        "store_name": "Балапан Анар №4"
+    },
+    "bema": {
+        "versions": ["Бема", "бема", "БЕМА"],
+        "store_id": "6534e92e6b78a2722e0a1b13",
+        "store_name": "Балапан Фрунзенский №7"
+    },
+    "aizat": {
+        "versions": ["Айзат", "айзат", "АЙЗАТ"],
+        "store_id": "6534e92e6b78a2722e0a1b13",
+        "store_name": "Балапан Фрунзенский №7"
+    },
+    "asida": {
+        "versions": ["Асида", "асида", "АСИДА"],
+        "store_id": "61fcfbe56fd83334d906684b",
+        "store_name": "Балапан Масалиева №5"
+    },
+    "diana": {
+        "versions": ["Диана", "диана", "ДИАНА"],
+        "store_id": "61fcfbe56fd83334d906684b",
+        "store_name": "Балапан Масалиева №5"
+    },
+    "nurkyz": {
+        "versions": ["Нуркыз", "нуркыз", "НУРКЫЗ"],
+        "store_id": "61fcfbe56fd83334d906684b",
+        "store_name": "Балапан Масалиева №5"
+    },
+    "aigerim": {
+        "versions": ["Айгерим", "айгерим", "АЙГЕРИМ"],
+        "store_id": "667a67de8d522538ee0ba760",
+        "store_name": "OFF PRICE"
+    },
+    "saida": {
+        "versions": ["Саида", "саида", "САИДА"],
+        "store_id": "667a67de8d522538ee0ba760",
+        "store_name": "OFF PRICE"
+    },
+    "elnura": {
+        "versions": ["Элнура", "элнура", "ЭЛНУРА"],
+        "store_id": "6187a2f023e410447a333bd0",
+        "store_name": "Балапан Анар №4"
+    },
+    "aidana_jal": {
+        "versions": ["Айдана", "айдана", "АЙДАНА"],
+        "store_id": "60a1ffac0bd70c60721c5c99",
+        "store_name": "Балапан ЖА"
+    },
+    "shano": {
+        "versions": ["Шано", "шано", "ШАНО"],
+        "store_id": "60a1ffac0bd70c60721c5c99",
+        "store_name": "Балапан ЖА"
+    },
+    "gulshan": {
+        "versions": ["Гулшан", "гулшан", "ГУЛШАН"],
+        "store_id": "60a1ffac0bd70c60721c5c99",
+        "store_name": "Балапан ЖА"
+    },
+    "akmaral": {
+        "versions": ["Акмарал", "акмарал", "АКМАРАЛ", "vfhfk"],
+        "store_id": "60a1ffac0bd70c60721c5c99",
+        "store_name": "Балапан ЖА"
+    },
+    "guliza": {
+        "versions": ["Гулиза", "гулиза", "ГУЛИЗА", "ГУЛИЗ"],
+        "store_id": "637b680b51c3772c3270c50c",
+        "store_name": "Балапан Узген №6"
+    },
+    "kanykei": {
+        "versions": ["Каныкей", "каныкей", "КАНЫКЕЙ"],
+        "store_id": "637b680b51c3772c3270c50c",
+        "store_name": "Балапан Узген №6"
+    },
+
+
+    "elzada": {
+        "versions": ["Элзада", "элзада", "ЭЛЗАДА", "эльзада", "Эльзада", "ЭЛЬЗАДА"],
+        "store_id": "667a67de8d522538ee0ba760",
+        "store_name": "OFF PRICE"
+    },
+    "aizhan":{
+        "versions": ["Айжан", "айжан", "АЙЖАН"],
+        "store_id": "60a1ffac0bd70c60721c5c99",
+        "store_name": "Балапан ЖА"
+    },
+    "nadira": {
+        "versions": ["Надира", "надира", "НАДИРА", "Нади", "нади", "НАДИ"],
+        "store_id": "637b680b51c3772c3270c50c",
+        "store_name": "Балапан Узген №6"
+    },
+    "syimyk": {
+        "versions": ["Сыимык", "сыимык", "СЫИМЫК", "сыймык", "Сыймык", "СЫЙМЫК"],
+        "store_id": "60a1ffac0bd70c60721c5c99",
+        "store_name": "Балапан ЖА"
+    }
+
+}

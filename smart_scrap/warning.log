@@ -1,0 +1,86 @@
+2024-02-13 18:52:59,682 || WARNING || registers.create_update || Касса №1 || 65cac563e083953843013fca || {'status': 1, 'message': 'Store not found'}
+2024-02-13 18:52:59,726 || WARNING || registers.create_update || Касса №1 || 65cac563e083953843013fca || {'status': 1, 'message': 'Store not found'}
+2024-02-15 14:46:36,467 || WARNING || registers.create_update || Касса №1 || 65cac563e083953843013fca || {'status': 1, 'message': 'Store not found'}
+2024-02-15 14:46:36,531 || WARNING || registers.create_update || Касса №1 || 65cac563e083953843013fca || {'status': 1, 'message': 'Store not found'}
+2024-02-15 15:48:48,655 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:50:07,629 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:50:07,665 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:11,533 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:11,568 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:11,605 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:11,642 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:11,677 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:11,746 || WARNING || products.create_update || Product 5 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:24,756 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:51:24,792 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:52:01,292 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:52:01,327 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:52:01,362 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:52:01,404 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 15:52:01,441 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:16:52,517 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:16:52,554 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:17:27,330 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:17:27,365 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:19,775 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:19,816 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:19,857 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:19,897 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:19,938 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:55,175 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:55,220 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:55,259 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:55,301 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:18:55,342 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:26:48,491 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:26:48,528 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:26:48,554 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:26:48,602 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:26:48,644 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,426 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,462 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,500 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,538 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,572 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,747 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,783 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,819 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,854 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,889 || WARNING || products.create_update || Product 5 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:27:51,991 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,240 || WARNING || products.create_update || Товар по свободной цене || 65cac563e083953843013fcc || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,294 || WARNING || products.create_update || Product 1 || 65cac6a9d76d4734a04e1e1b || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,328 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,364 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,398 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,609 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,649 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,688 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,727 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,762 || WARNING || products.create_update || Product 5 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,837 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 16:28:07,907 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:40,106 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:40,145 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:40,520 || WARNING || suppliers.delete || Поставщик || 65cac563e083953843013fc7 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:40,930 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:40,966 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:41,088 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:41,162 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-15 17:11:41,250 || WARNING || products.create_update || Product 7 || 65cdc3c933fc01155a573f0e || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:28,812 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:28,847 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:29,280 || WARNING || suppliers.delete || Поставщик || 65cac563e083953843013fc7 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:29,702 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:29,740 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:29,874 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:29,980 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:23:30,063 || WARNING || products.create_update || Product 7 || 65cdc3c933fc01155a573f0e || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:08,753 || WARNING || products.create_update || Product 4 || 65cac71d0b05a04ebb55ca1d || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:08,788 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:09,139 || WARNING || suppliers.delete || Поставщик || 65cac563e083953843013fc7 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:09,564 || WARNING || products.create_update || Product 3 || 65cac7053f1842512e702a34 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:09,601 || WARNING || products.create_update || Product 2 || 65cac6e750d0f3658c448245 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:09,715 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:09,785 || WARNING || products.create_update || Product 6 || 65cb455aa4f25302901a7f89 || {'status': 1, 'message': 'Supplier not found'}
+2024-02-16 15:25:09,862 || WARNING || products.create_update || Product 7 || 65cdc3c933fc01155a573f0e || {'status': 1, 'message': 'Supplier not found'}
