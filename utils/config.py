@@ -8,11 +8,11 @@ URLS = [
     "http://127.0.0.1:8002",
     "http://127.0.0.1:8003",
     "https://balapan.herokuapp.com",
+    "http://172.30.1.44:8000",
     "http://192.168.0.101:8000",
     "https://cloudshop-855e74fca5e5.herokuapp.com"
 ]
 SERVER_MODE = 4
-
 BASE_URL = URLS[SERVER_MODE]
 COMMON_HEADERS = {
     "Accept": "application/json, text/plain, */*",

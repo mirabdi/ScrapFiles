@@ -116,7 +116,7 @@ def clean_products():
     return 1
 
 
-def dump_products():
+def dump_products(create_break):
     with open(f'{BASE_DIR}/data/clean/clean_products.json', 'r', encoding='utf-8') as f:
         cleaned_products = json.load(f)
     products_api = f'{BASE_URL}/import/products-api'
@@ -135,7 +135,7 @@ def dump_products():
                 'data': temp,
             }
             response = requests.post(products_api, json=request_data).json()
-            if response['created_count'] == 0:
+            if response['created_count'] == 0 and create_break:
                 break
             total += response['total']
             created_count += response['created_count']
@@ -159,7 +159,7 @@ def dump_products():
     return (1, stats)
 
 
-def scrape_products(skip_load):
+def scrape_products(skip_load, create_break=False):
     print("================ PRODUCTS ================")
     if not skip_load:
         status = load_products()
@@ -173,7 +173,7 @@ def scrape_products(skip_load):
             print("Failed to clean products")
         else:
             print("2) Cleaned...")
-    status, stats = dump_products()
+    status, stats = dump_products(create_break)
     if status == 0:
         print("Failed to dump products")
     else:

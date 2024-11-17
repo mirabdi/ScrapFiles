@@ -1,6 +1,6 @@
 import json
 import requests
-from utils.common import write_to_json, read_json, calculate_time
+from utils.common import write_to_json, read_json, calculate_time, clean_phone
 from utils.config import COMMON_HEADERS, COMMON_URL, BASE_URL
 
 
@@ -89,7 +89,9 @@ def clean_clients():
         if not gender:
             gender = 'female'
         created = calculate_time(thing['created'])
-        birthday = calculate_time(thing.get('birthday', 1893456000)).split()[0]
+        birthday = thing.get('birthday')
+        if birthday:
+            birthday = calculate_time(birthday).split(' ')[0]
         discount_percent = thing.get('discount_percent', None)
         discount_card = thing.get('discount_card', None)
         phones = thing.get('phones', [None])
@@ -102,6 +104,7 @@ def clean_clients():
 
         if bonus_balance is None or bonus_spent is None or cashback_rate is None:
             raise Exception(f"Failed to clean client {name} ID:{cloudshop_id} with missing data")
+        phone = clean_phone(phone)
         client = {
             'cloudshop_id': cloudshop_id,
             'name': name,
@@ -126,6 +129,51 @@ def clean_clients():
     return 1
 
 
+def merge_clients():
+    # Load the cleaned clients JSON data
+    with open(f'data/clean/clean_clients.json', 'r', encoding='utf-8') as f:
+        cleaned_clients = json.load(f)
+    
+    # Dictionary to store merged clients by phone number
+    merged_clients = {}
+    
+    for client in cleaned_clients:
+        phone = client.get('phone')
+        if not phone:
+            continue
+        
+        if phone in merged_clients:
+            # If the phone number already exists, merge the bonus balances and spent
+            merged_clients[phone]['bonus_balance'] += client.get('bonus_balance', 0)
+            merged_clients[phone]['bonus_spent'] += client.get('bonus_spent', 0)
+        else:
+            # Otherwise, add the client to the merged clients dictionary
+            merged_clients[phone] = {
+                'cloudshop_id': client['cloudshop_id'],
+                'name': client['name'],
+                'gender': client['gender'],
+                'created': client['created'],
+                'discount_percent': client.get('discount_percent'),
+                'discount_card': client.get('discount_card'),
+                'phone': client['phone'],
+                'enable_savings': client.get('enable_savings'),
+                'loyalty_type': client.get('loyalty_type'),
+                'bonus_balance': client.get('bonus_balance', 0),
+                'bonus_spent': client.get('bonus_spent', 0),
+                'cashback_rate': client.get('cashback_rate'),
+                'birthday': client.get('birthday')
+            }
+
+    # Convert the merged_clients dictionary back to a list
+    merged_clients_list = list(merged_clients.values())
+
+    # Save the merged clients data to a new file (optional)
+    with open(f'data/clean/clean_clients.json', 'w', encoding='utf-8') as f:
+        json.dump(merged_clients_list, f, ensure_ascii=False, indent=4)
+
+    return 1
+
+
 def dump_clients(create_break):
     with open(f'data/clean/clean_clients.json', 'r', encoding='utf-8') as f:
         cleaned_clients = json.load(f)
@@ -139,12 +187,12 @@ def dump_clients(create_break):
     for client in cleaned_clients:
         temp.append(client)
         cnt += 1
-        if cnt % 100 == 0:
+        if cnt % 300 == 0:
             request_data = {
                 'data': temp,
             }
             response = requests.post(clients_api, json=request_data).json()
-            print(response)
+            print(f"Total: {total}, Created: {created_count}, Updated: {updated_count}")
             if response['created_count'] == 0 and create_break:
                 break
             total += response['total']
@@ -189,6 +237,10 @@ def scrape_clients(skip_load, create_break=True):
         print("Failed to clean clients")
     else:
         print("2) Cleaned...")
+
+    status = merge_clients()
+    # return
+
     status = dump_clients(create_break)
     if status == 0:
         print("Failed to dump clients")

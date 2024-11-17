@@ -5,6 +5,8 @@ import datetime as dt
 from utils.config import COMMON_HEADERS, COMMON_URL, BASE_URL
 import concurrent.futures
 from .docs_utils import handle_sale, handle_return_sale, handle_purchase, handle_return_purchase, handle_movement, handle_change, emps, stores
+import re
+
 
 errors = []
 def get_consultant(doc):
@@ -12,11 +14,13 @@ def get_consultant(doc):
     comment = doc.get('comment', '')
     if '@' in comment:
         username = comment.split('@')[1].split()[0]
-        if username in emps:
-            return username
+        return username
     
-    consultant_name = ''.join(filter(str.isalpha, comment.split(' ')[0].strip())).lower()
-
+    match = re.search(r'[А-Яа-яЁё]+', comment)
+    if match:
+        consultant_name = match.group(0)
+    else:
+        consultant_name = ''
     if len(consultant_name) == 0:
         return None
     if store_id:
@@ -270,7 +274,9 @@ def clean_docs(id):
             #### ADDITIONAL FIELDS ####
             doc['shift_id'] = thing.get('_shift', None)
             doc['register_id'] = thing.get('_register', None)
-            doc['bonus_cashback'] = thing.get('bonus_cashback', None)
+            doc['bonus_cashback'] = thing.get('bonus_cashback', 0)
+            doc['bonus_spent'] = thing.get('bonus_spent', 0)
+            doc['bonus_discount'] = thing.get('bonus_discount', 0)
             doc['status'] = thing['status']
             comment = thing.get('comment', '')
             if not comment:
@@ -338,6 +344,7 @@ def dump_docs(id, base_url=BASE_URL):
                 elif stats['action'] == 'update':
                     updated_count += 1
                 else:
+                    print(stats)
                     error_count += 1
             docs_data = []
         except:
@@ -355,6 +362,7 @@ def scrape_docs(skip_load, from_date, to_date, id=0):
     print("================ DOCS ================")
 
     ###### LOADING DOCS #######
+    # skip_load = True
     if not skip_load:
         status = 1
         # status = load_docs_from_server_without_jump(id)
