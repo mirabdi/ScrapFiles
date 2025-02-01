@@ -79,6 +79,8 @@ def dump_suppliers(cleaned_suppliers):
         "Created Count": created_count,
         "Updated Count": updated_count
     }
+    with open('data/clean/suppliers_stats.json', 'w') as f:
+        json.dump(stats, f)
     return (1, stats)
 
 

@@ -85,6 +85,8 @@ def clean_clients():
     for thing in responses:
         cloudshop_id = thing['_id']
         name = thing.get('name', None)
+        if name:
+            name = name.strip()
         gender = thing.get('sex', 'female')
         if not gender:
             gender = 'female'

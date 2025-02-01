@@ -13,6 +13,7 @@ URLS = [
     "https://cloudshop-855e74fca5e5.herokuapp.com"
 ]
 SERVER_MODE = 4
+
 BASE_URL = URLS[SERVER_MODE]
 COMMON_HEADERS = {
     "Accept": "application/json, text/plain, */*",

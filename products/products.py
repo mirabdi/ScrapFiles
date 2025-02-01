@@ -101,7 +101,8 @@ def clean_products():
             'supplier_id': supplier_id,
             'discount': discount,
             'created': created,
-            'pics': pics
+            'pics': pics,
+            'is_added': True
         }
         cleaned_products.append(product)
         cnt += 1

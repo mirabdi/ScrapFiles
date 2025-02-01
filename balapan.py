@@ -16,39 +16,42 @@ def main(skip_load):
     # scrape_clients(skip_load, choosen_url)
     # print("Starting scrapers...")
 
-    try:
-        from_date = dt.datetime(2024, 11, 15, 0, 0, 0)
-        to_date = dt.datetime.now()
-        from_date = to_date.replace(hour=0, minute=0, second=0, microsecond=0)
-        # while dt.datetime.now().minute < 30:
-        #     sleep = dt.datetime.now().replace(hour=12, minute=30, second=0, microsecond=0) - dt.datetime.now()
-        #     print(f"Sleeping until 9:00 am... ({sleep})")
-        #     time.sleep(abs(sleep.total_seconds()))
-    
-        # scrape_stores()
-        # scrape_registers()
-        # scrape_suppliers()
-        scrape_products(skip_load, create_break=True)
-        scrape_shifts(skip_load, from_date, to_date)
+    # try:
+    # from_date = dt.datetime(2025, 1, 30, 0, 0, 0)
+    # from_date = dt.datetime.now() - dt.timedelta(hours=5)
+    to_date = dt.datetime.now()
+    from_date = to_date - dt.timedelta(hours=30)
+    # to_date = dt.datetime(2024, 6, 3, 0, 0,)
+    # from_date = to_date.replace(hour=0, minute=0, second=0, microsecond=0) 
+    # while dt.datetime.now().minute < 30:
+    #     sleep = dt.datetime.now().replace(hour=12, minute=30, second=0, microsecond=0) - dt.datetime.now()
+    #     print(f"Sleeping until 9:00 am... ({sleep})")
+    #     time.sleep(abs(sleep.total_seconds()))
 
-        
-        cnt = -1
-        while True:
-            to_date = dt.datetime.now() 
-            cnt += 1
-            if cnt%100 == 0:
-                scrape_clients(skip_load, create_break=False)
-            else:
-                scrape_clients(skip_load, create_break=True)
-            scrape_docs(skip_load, from_date, to_date)
-            from_date = to_date - dt.timedelta(minutes=20)
-            if from_date.hour == 0:
-                return
-    except Exception as e:
-        print(f"An error occurred, {e} restarting in 10 minutes...")
+    # scrape_stores()
+    # scrape_registers()
+    # scrape_suppliers()
+    # scrape_products(skip_load, create_break=False)
+    # scrape_shifts(skip_load, from_date, to_date)
+
+    
+    cnt = -2
+    while True: 
+        # to_date = dt.datetime.now() 
+        cnt += 1
+        if cnt%100 == 0:
+            scrape_clients(skip_load, create_break=False)
+        else:
+            scrape_clients(skip_load, create_break=True)
+        scrape_docs(skip_load, from_date, to_date)
+        from_date = to_date - dt.timedelta(minutes=20)
+
+    # except Exception as e:
+    #     print(f"An error occurred, {e} restarting in 10 minutes...")
         # traceback.print_exc() 
         # sleeping for 30 minutes before restarting
         #  
+        return
         time.sleep(600)
         main(skip_load)
 

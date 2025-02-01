@@ -14,7 +14,8 @@ def get_consultant(doc):
     comment = doc.get('comment', '')
     if '@' in comment:
         username = comment.split('@')[1].split()[0]
-        return username
+        if username != 'undefined':
+            return username
     
     match = re.search(r'[А-Яа-яЁё]+', comment)
     if match:
@@ -34,11 +35,13 @@ def get_consultant(doc):
         if consultant_name in details["versions"]:
             matches.append(username)
     if len(matches) > 1:
-        for username, details in emps.items():
-            if store_id == details["store_id"]:
-                store_name = details["store_name"]
-            if details["city"] == store_city and consultant_name in details["versions"]:
-                return username
+        # for username, details in emps.items():
+        #     if store_id == details["store_id"]:
+        #         store_name = details["store_name"]
+        #     if details["city"] == store_city and consultant_name in details["versions"]:
+        #         return username
+        print(f"Store name {store_name}: store id: {store_id} with name version '{consultant_name}' matches multiple entries. {comment}")
+        return None
     elif len(matches) == 1:
         return matches[0]
     print(f"Store name {store_name}: store id: {store_id} with name version '{consultant_name}' does not match any existing entry. {comment}")
@@ -245,6 +248,8 @@ def clean_docs(id):
         doc = {}
         ok = False
         curr = thing['_id']
+        if curr in  ['679d954dd411fd1cfe7d9468', '679d29fe3eb8a4016e1d8fcf', '679d234bab82a70369535cdd']:
+            continue
         if thing['type'] == 'sales':
             doc = handle_sale(thing)
             stats['sales_count'] += 1
@@ -300,6 +305,7 @@ def clean_docs(id):
     return 1, stats
 
 
+
 def dump_docs(id, base_url=BASE_URL):
     with open(f"data/clean/clean_docs_{id}.json", 'r', encoding='utf-8') as f:
         cleaned_docs = json.load(f)
@@ -314,7 +320,7 @@ def dump_docs(id, base_url=BASE_URL):
     docs_data = []
     for i, doc in enumerate(cleaned_docs):
         docs_data.append(doc)
-        if i % 20 == 19:
+        if i % 10 == 9:
             try:
                 response = requests.post(docs_api, json=docs_data)
                 statuses = response.json()['statuses']
@@ -328,11 +334,16 @@ def dump_docs(id, base_url=BASE_URL):
                     # print(stats)
                 docs_data = []
             except Exception as e:
-                print("Failed to dump docs", response.status_code, response.json(), e)
+                print("Failed to dump docs", e)
+                print(docs_data)
+                try:
+                    print(response.status_code, response.json())
+                except:
+                    pass
                 import sys
                 print(sys.exc_info())
                 sys.exit()
-        if i%500 == 0:
+        if i%100 == 0:
             print(f"{i} docs processed")
     if len(docs_data) > 0:
         response = requests.post(docs_api, json=docs_data)
