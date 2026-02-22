@@ -41,6 +41,8 @@ def clean_suppliers(loaded_suppliers):
         cnt += 1
     
     cleaned_suppliers = sorted(cleaned_suppliers, key=lambda x: x['created'])
+    with open('data/clean/clean_suppliers.json', 'w', encoding='utf-8') as f:
+        json.dump(cleaned_suppliers, f, ensure_ascii=False, indent=4)
     return (1, cleaned_suppliers)
 
 

@@ -1,0 +1,1568 @@
+{
+	"info": {
+		"_postman_id": "765634a9-6782-4452-b102-83a1fe3b010e",
+		"name": "BALAPAN-ADMIN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37629989",
+		"_collection_link": "https://balapan-6808.postman.co/workspace/Team-Workspace~ece860b5-6b07-4603-8d7d-c01ca4d58644/collection/37629989-765634a9-6782-4452-b102-83a1fe3b010e?action=share&source=collection_link&creator=37629989"
+	},
+	"item": [
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "employees",
+					"item": [
+						{
+							"name": "employees",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/employees?limit=20&offset=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"employees"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "offset",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "employee-groups",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/employee-groups",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"employee-groups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "employee-group's members",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/employee-groups/38/members",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"employee-groups",
+										"38",
+										"members"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\": \"First\",\r\n    \"last_name\": \"Last\",\r\n    \"username\": \"Username\",\r\n    \"password\": \"password\",\r\n    \"group_id\": 5,\r\n    \"store_ids\": [],\r\n    \"phone\": \"0555010102\",\r\n    \"email\": \"emai@gmail.com\"\r\n\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin-api/employees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"employees"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "stores",
+					"item": [
+						{
+							"name": "stores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/stores",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"stores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get employees of a store",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/stores/1/employees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"stores",
+										"1",
+										"employees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update employees of a store",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "consultants",
+					"item": [
+						{
+							"name": "consultants/docs",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin-api/consultants/docs/?from_date=2025-01-01&to_date=2025-01-07&offset=0&limit=50",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"consultants",
+										"docs",
+										""
+									],
+									"query": [
+										{
+											"key": "from_date",
+											"value": "2025-01-01"
+										},
+										{
+											"key": "to_date",
+											"value": "2025-01-07"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "consultants/stats",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/consultants/stats/?from_date=2024-07-02&to_date=2024-07-30",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"consultants",
+										"stats",
+										""
+									],
+									"query": [
+										{
+											"key": "from_date",
+											"value": "2024-07-02"
+										},
+										{
+											"key": "to_date",
+											"value": "2024-07-30"
+										},
+										{
+											"key": "offset",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "sessions",
+					"item": [
+						{
+							"name": "sessions-history",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin-api/employees/sessions/?offset=0&limit=15",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"employees",
+										"sessions",
+										""
+									],
+									"query": [
+										{
+											"key": "from_date",
+											"value": "2024-12-12",
+											"disabled": true
+										},
+										{
+											"key": "to_date",
+											"value": "2025-01-10",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit session",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"latitude\": 40.535959,\r\n    \"longitude\": 72.795386,\r\n    // check, checkin, checkout\r\n    \"action\": \"checkout\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin-api/employees/sessions/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"employees",
+										"sessions",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "projects & tasks",
+					"item": [
+						{
+							"name": "tasks",
+							"item": [
+								{
+									"name": "get task notes of task",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin-api/tasks/12/task-notes/?limit=50&offset=0",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"tasks",
+												"12",
+												"task-notes",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "50"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add a task",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"name\": \"API Task\", \"text\": \"This is a new task added by API\", \"status\": \"todo\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin-api/projects/1/tasks",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"projects",
+												"1",
+												"tasks"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update task status",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"status\": \"todo\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin-api/tasks/1/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"tasks",
+												"1",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "create a task note",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"text\": \"Nurislam?\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin-api/tasks/9/task-notes/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"tasks",
+												"9",
+												"task-notes",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "task by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin-api/tasks/103/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"tasks",
+												"103",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "project-groups",
+							"item": [
+								{
+									"name": "project-groups",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin-api/project-groups/?limit=15&offset=0",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"project-groups",
+												""
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "15"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "projects of a project-group",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin-api/project-groups/1/projects?limit=15&offset=0",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin-api",
+												"project-groups",
+												"1",
+												"projects"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "15"
+												},
+												{
+													"key": "offset",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "project by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/projects/60",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"projects",
+										"60"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "projects of consultant",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin-api/consultants/projects/?limit=15&offset=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"consultants",
+										"projects",
+										""
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "15"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get members of project",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin-api/projects/4/members?limit=50&offset=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"projects",
+										"4",
+										"members"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "50"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get tasks of project",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin-api/projects/66/tasks?status=todo&limit=50&offset=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin-api",
+										"projects",
+										"66",
+										"tasks"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "todo"
+										},
+										{
+											"key": "limit",
+											"value": "50"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "pos",
+			"item": [
+				{
+					"name": "shifts",
+					"item": [
+						{
+							"name": "shifts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pos/admin-api/shifts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pos",
+										"admin-api",
+										"shifts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "docs of shift",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pos/admin-api/shifts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pos",
+										"admin-api",
+										"shifts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pos/admin-api/consultants",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pos",
+								"admin-api",
+								"consultants"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "docs",
+			"item": [
+				{
+					"name": "docs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/docs/admin-api/docs?limit=20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"docs",
+								"admin-api",
+								"docs"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "positions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/docs/admin-api/positions?filter=doc=475616&offset=0&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"docs",
+								"admin-api",
+								"positions"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "doc=475616"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "docs stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/docs/admin-api/docs/stats?filter=date__gte=2025-01-01",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"docs",
+								"admin-api",
+								"docs",
+								"stats"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "date__gte=2025-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "docs stats by consultants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/docs/admin-api/docs/stats-by-consultant/?filter=date__gte=2025-01-01",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"docs",
+								"admin-api",
+								"docs",
+								"stats-by-consultant",
+								""
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "date__gte=2025-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "docs stats by stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/docs/admin-api/docs/stats-by-store/?filter=date__gte=2025-01-01",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"docs",
+								"admin-api",
+								"docs",
+								"stats-by-store",
+								""
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "date__gte=2025-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "parties",
+			"item": [
+				{
+					"name": "clients",
+					"item": [
+						{
+							"name": "clients",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/clients",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"clients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "client-groups",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/client-groups",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"client-groups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "client-group's members",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/client-groups/2/members",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"client-groups",
+										"2",
+										"members"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "client's notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/clients/13469/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"clients",
+										"13469",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "suppliers",
+					"item": [
+						{
+							"name": "suppliers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/suppliers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"suppliers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "supplier-groups",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/supplier-groups",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"supplier-groups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "supplier-group's members",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/parties/admin-api/supplier-groups/1/members",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"parties",
+										"admin-api",
+										"supplier-groups",
+										"1",
+										"members"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "sections",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/dashboard/admin-api/sections",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard",
+								"admin-api",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "crm",
+			"item": [
+				{
+					"name": "notifications",
+					"item": [
+						{
+							"name": "employee's notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/notifications/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"notifications",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notification-templates",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/notification-templates/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"notification-templates",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/notification-templates/959/clients",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"notification-templates",
+										"959",
+										"clients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "a notification-template",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/notification-templates/959",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"notification-templates",
+										"959"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "sms",
+					"item": []
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "orders",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/orders?filter=updated>2025-01-11 00:00:00&order=sum,desc;created&limit=50&offset=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "updated>2025-01-11 00:00:00"
+										},
+										{
+											"key": "order",
+											"value": "sum,desc;created"
+										},
+										{
+											"key": "limit",
+											"value": "50"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "order-by-id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/orders/50517/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"orders",
+										"50517",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "orders/<id>",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"status\": \"ready\", \"message\": \"Hello world\"}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/orders/37287/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"orders",
+										"37287",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/admin-api/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"admin-api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product-groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/admin-api/product-groups",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"admin-api",
+								"product-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/admin-api/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"admin-api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "app",
+			"item": [
+				{
+					"name": "listings",
+					"item": [
+						{
+							"name": "listings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/listings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"listings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listing-by-id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/listings/6/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"listings",
+										"6",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "assortments",
+					"item": [
+						{
+							"name": "assortment by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/assortments/299",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"assortments",
+										"299"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "assortments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/crm/admin-api/assortments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"crm",
+										"admin-api",
+										"assortments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "stats",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/stats/admin-api/docs?filter=date__gte=2025-01-01",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"stats",
+								"admin-api",
+								"docs"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "date__gte=2025-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-api/auth/check",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-api",
+						"auth",
+						"check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

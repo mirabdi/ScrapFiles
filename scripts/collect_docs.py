@@ -34,7 +34,7 @@ def handle_sale(thing):
         discount_percent = item['discount_percent']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
+            'quantity': quantity,
             'sum': abs(sum),
             'sub': abs(sub),
             'price': abs(price),
@@ -73,7 +73,7 @@ def handle_return_sale(thing):
         discount_percent = item['discount_percent']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
+            'quantity': quantity,
             'sum': abs(sum),
             'sub': abs(sub),
             'price': abs(price),
@@ -110,7 +110,7 @@ def handle_purchase(thing):
         price = item['price']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
+            'quantity': quantity,
             'sum': abs(sum),
             'sub': abs(sub),
             'price': abs(price),
@@ -145,7 +145,7 @@ def handle_return_purchase(thing):
         price = item['price']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
+            'quantity': quantity,
             'sum': abs(sum),
             'sub': abs(sub),
             'price': abs(price),
@@ -182,7 +182,7 @@ def handle_movement(thing):
         discount_percent = item['discount_percent']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
+            'quantity': quantity,
             'price': abs(price),
         }
         products.append(product)
@@ -213,7 +213,7 @@ def handle_change(thing):
         price = item['price']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
+            'quantity': quantity,
             'price': abs(price),
         }
         products.append(product)

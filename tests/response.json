@@ -1,0 +1,536 @@
+{
+    "status": 0,
+    "message": "success",
+    "response": {
+        "meta": {
+            "type": "employee-list",
+            "href": "/admin-api/employees/",
+            "size": 1,
+            "limit": 10,
+            "offset": 0
+        },
+        "rows": [
+            {
+                "meta": {
+                    "id": 1,
+                    "name": "Amirbek",
+                    "type": "employee",
+                    "href": "/admin-api/employees/1/"
+                },
+                "id": 1,
+                "username": "admin",
+                "password": "belepen",
+                "token": "token",
+                "name": "Amirbek",
+                "first_name": "Amirbek",
+                "last_name": "Abdirasulov",
+                "phone": null,
+                "stats": {
+                    "count": 0,
+                    "quantity": 0,
+                    "purchase": 0,
+                    "profit": 0
+                },
+                "last_seen": null,
+                "image_url": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+                "is_archived": false,
+                "sections": [
+                    {
+                        "id": 76,
+                        "url": "dashboard",
+                        "name": "Панель",
+                        "priority": 76,
+                        "sub_sections": [
+                            {
+                                "id": 130,
+                                "url": "dashboard",
+                                "name": "Панель",
+                                "icon": "FiShoppingBag",
+                                "priority": 130
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.325776",
+                        "updated": "2025-01-28T07:25:35.330962"
+                    },
+                    {
+                        "id": 77,
+                        "url": "docs",
+                        "name": "Документы",
+                        "priority": 77,
+                        "sub_sections": [
+                            {
+                                "id": 131,
+                                "url": "docs",
+                                "name": "docs",
+                                "icon": "",
+                                "priority": 131
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.357531",
+                        "updated": "2025-01-28T07:25:35.358788"
+                    },
+                    {
+                        "id": 78,
+                        "url": "stats",
+                        "name": "Показатели",
+                        "priority": 78,
+                        "sub_sections": [
+                            {
+                                "id": 132,
+                                "url": "stats/consultants",
+                                "name": "По консультантам",
+                                "icon": "",
+                                "priority": 132
+                            },
+                            {
+                                "id": 133,
+                                "url": "stats/stores",
+                                "name": "По магазинам",
+                                "icon": "",
+                                "priority": 133
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.373630",
+                        "updated": "2025-01-28T07:25:35.374845"
+                    },
+                    {
+                        "id": 79,
+                        "url": "parties",
+                        "name": "КОНТРАГЕНТЫ",
+                        "priority": 79,
+                        "sub_sections": [
+                            {
+                                "id": 134,
+                                "url": "parties/client-groups",
+                                "name": "Группы клиентов",
+                                "icon": "RiContactsLine",
+                                "priority": 134
+                            },
+                            {
+                                "id": 135,
+                                "url": "parties/supplier-groups",
+                                "name": "Группы поставщиков",
+                                "icon": "RiContactsLine",
+                                "priority": 135
+                            },
+                            {
+                                "id": 136,
+                                "url": "parties/clients",
+                                "name": "Клиенты",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 136
+                            },
+                            {
+                                "id": 137,
+                                "url": "parties/suppliers",
+                                "name": "Поставщики",
+                                "icon": "IoMdContacts",
+                                "priority": 137
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.396485",
+                        "updated": "2025-01-28T07:25:35.397674"
+                    },
+                    {
+                        "id": 80,
+                        "url": "products",
+                        "name": "ТОВАРЫ",
+                        "priority": 80,
+                        "sub_sections": [
+                            {
+                                "id": 138,
+                                "url": "products/categories",
+                                "name": "Категории",
+                                "icon": "FiShoppingBag",
+                                "priority": 138
+                            },
+                            {
+                                "id": 139,
+                                "url": "products/groups",
+                                "name": "Группы товаров",
+                                "icon": "FiShoppingBag",
+                                "priority": 139
+                            },
+                            {
+                                "id": 140,
+                                "url": "products",
+                                "name": "Товары",
+                                "icon": "FiShoppingBag",
+                                "priority": 140
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.434452",
+                        "updated": "2025-01-28T07:25:35.435768"
+                    },
+                    {
+                        "id": 81,
+                        "url": "app",
+                        "name": "ПРИЛОЖЕНИЯ",
+                        "priority": 81,
+                        "sub_sections": [
+                            {
+                                "id": 141,
+                                "url": "app/assortments",
+                                "name": "Ассортименты",
+                                "icon": "AiOutlineUnorderedList",
+                                "priority": 141
+                            },
+                            {
+                                "id": 142,
+                                "url": "app/listings",
+                                "name": "Листинги",
+                                "icon": "AiOutlineUnorderedList",
+                                "priority": 142
+                            },
+                            {
+                                "id": 143,
+                                "url": "app/posts",
+                                "name": "Посты",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 143
+                            },
+                            {
+                                "id": 144,
+                                "url": "app/banners",
+                                "name": "Баннеры",
+                                "icon": "AiOutlineAppstore",
+                                "priority": 144
+                            },
+                            {
+                                "id": 145,
+                                "url": "app/brands",
+                                "name": "Бренды",
+                                "icon": "AiOutlineTag",
+                                "priority": 145
+                            },
+                            {
+                                "id": 146,
+                                "url": "app/qas",
+                                "name": "Q/A",
+                                "icon": "AiOutlineUnorderedList",
+                                "priority": 146
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.468642",
+                        "updated": "2025-01-28T07:25:35.469861"
+                    },
+                    {
+                        "id": 82,
+                        "url": "crm",
+                        "name": "CRM",
+                        "priority": 82,
+                        "sub_sections": [
+                            {
+                                "id": 147,
+                                "url": "crm/notifications/templates",
+                                "name": "Рассылки",
+                                "icon": "",
+                                "priority": 147
+                            },
+                            {
+                                "id": 148,
+                                "url": "crm/map",
+                                "name": "Карта",
+                                "icon": "RiContactsLine",
+                                "priority": 148
+                            },
+                            {
+                                "id": 149,
+                                "url": "crm/notifications",
+                                "name": "Уведомления",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 149
+                            },
+                            {
+                                "id": 150,
+                                "url": "crm/orders/ordered",
+                                "name": "Заказы",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 150
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.550709",
+                        "updated": "2025-01-28T07:25:35.554629"
+                    },
+                    {
+                        "id": 83,
+                        "url": "dev",
+                        "name": "DEV",
+                        "priority": 83,
+                        "sub_sections": [
+                            {
+                                "id": 151,
+                                "url": "dev/sections",
+                                "name": "Страницы",
+                                "icon": "",
+                                "priority": 151
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.604740",
+                        "updated": "2025-01-28T07:25:35.605928"
+                    },
+                    {
+                        "id": 84,
+                        "url": "pos",
+                        "name": "КАССА",
+                        "priority": 84,
+                        "sub_sections": [
+                            {
+                                "id": 152,
+                                "url": "pos/shifts",
+                                "name": "Смены",
+                                "icon": "",
+                                "priority": 152
+                            },
+                            {
+                                "id": 153,
+                                "url": "pos/bonus",
+                                "name": "Бонусы",
+                                "icon": "",
+                                "priority": 153
+                            },
+                            {
+                                "id": 154,
+                                "url": "pos/opay",
+                                "name": "Оплата",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 154
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.619941",
+                        "updated": "2025-01-28T07:25:35.621169"
+                    },
+                    {
+                        "id": 85,
+                        "url": "templates",
+                        "name": "TEMPLATES",
+                        "priority": 85,
+                        "sub_sections": [
+                            {
+                                "id": 136,
+                                "url": "parties/clients",
+                                "name": "Клиенты",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 136
+                            },
+                            {
+                                "id": 150,
+                                "url": "crm/orders/ordered",
+                                "name": "Заказы",
+                                "icon": "AiOutlineShoppingCart",
+                                "priority": 150
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.650891",
+                        "updated": "2025-01-28T07:25:35.652195"
+                    },
+                    {
+                        "id": 86,
+                        "url": "util_apps",
+                        "name": "APPS",
+                        "priority": 86,
+                        "sub_sections": [
+                            {
+                                "id": 155,
+                                "url": "calendar",
+                                "name": "calendar",
+                                "icon": "AiOutlineCalendar",
+                                "priority": 155
+                            },
+                            {
+                                "id": 156,
+                                "url": "kanban",
+                                "name": "kanban",
+                                "icon": "BsKanban",
+                                "priority": 156
+                            },
+                            {
+                                "id": 157,
+                                "url": "editor",
+                                "name": "editor",
+                                "icon": "FiEdit",
+                                "priority": 157
+                            },
+                            {
+                                "id": 158,
+                                "url": "color-picker",
+                                "name": "color-picker",
+                                "icon": "BiColorFill",
+                                "priority": 158
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.665438",
+                        "updated": "2025-01-28T07:25:35.666593"
+                    },
+                    {
+                        "id": 87,
+                        "url": "company",
+                        "name": "КОМПАНИЯ",
+                        "priority": 87,
+                        "sub_sections": [
+                            {
+                                "id": 159,
+                                "url": "company/consultants",
+                                "name": "Консультанты",
+                                "icon": "",
+                                "priority": 159
+                            },
+                            {
+                                "id": 160,
+                                "url": "company/employee-groups",
+                                "name": "Отделы",
+                                "icon": "MdOutlineSupervisorAccount",
+                                "priority": 160
+                            },
+                            {
+                                "id": 161,
+                                "url": "company/employees",
+                                "name": "Сотрудники",
+                                "icon": "MdOutlineSupervisorAccount",
+                                "priority": 161
+                            },
+                            {
+                                "id": 162,
+                                "url": "company/stores",
+                                "name": "Магазины",
+                                "icon": "BsBoxSeam",
+                                "priority": 162
+                            }
+                        ],
+                        "included": true,
+                        "created": "2025-01-28T07:25:35.702864",
+                        "updated": "2025-01-28T07:25:35.704063"
+                    }
+                ],
+                "stores": [
+                    {
+                        "id": 1,
+                        "name": "Балапан Ош №1",
+                        "cloudshop_id": "57c09c3d3ce7d59d048b46ca",
+                        "created": "2016-08-27T04:45:01",
+                        "updated": "2024-04-07T17:40:54",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Балапашка №2",
+                        "cloudshop_id": "608931190bd70c702d0dbf6c",
+                        "created": "2021-04-28T18:55:37",
+                        "updated": "2022-06-05T02:17:54",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Балапан ЖА",
+                        "cloudshop_id": "60a1ffac0bd70c60721c5c99",
+                        "created": "2021-05-17T14:31:24",
+                        "updated": "2024-07-06T16:30:06",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Балапан Анар №4",
+                        "cloudshop_id": "6187a2f023e410447a333bd0",
+                        "created": "2021-11-07T18:57:04",
+                        "updated": "2024-07-22T12:52:03",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Балапан Масалиева №5",
+                        "cloudshop_id": "61fcfbe56fd83334d906684b",
+                        "created": "2022-02-04T19:11:49",
+                        "updated": "2023-07-18T14:25:41",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Основной склад",
+                        "cloudshop_id": "617be0fd23e410238456d59f",
+                        "created": "2021-10-29T20:54:37",
+                        "updated": "2022-08-18T20:47:52",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 7,
+                        "name": "Deleted store 1",
+                        "cloudshop_id": "58cf65253ce7d5be528b4803",
+                        "created": "2023-08-28T17:34:36.883000",
+                        "updated": "2023-08-28T17:34:36.883000",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 8,
+                        "name": "Deleted Store",
+                        "cloudshop_id": "5940ef5c3ce7d57f7a8b456b",
+                        "created": "2023-08-28T19:03:30.112000",
+                        "updated": "2023-08-28T19:03:30.112000",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 9,
+                        "name": "Балапан Узген №6",
+                        "cloudshop_id": "637b680b51c3772c3270c50c",
+                        "created": "2022-11-21T20:59:07",
+                        "updated": "2022-11-24T17:09:13",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 10,
+                        "name": "Deleted Store",
+                        "cloudshop_id": "5943da9f3ce7d50b568b4783",
+                        "created": "2023-08-29T23:02:08.935000",
+                        "updated": "2023-08-29T23:02:08.935000",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 18,
+                        "name": "Балапан Фрунзенский №7",
+                        "cloudshop_id": "6534e92e6b78a2722e0a1b13",
+                        "created": "2023-10-22T18:19:42",
+                        "updated": "2023-11-16T02:34:36",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 19,
+                        "name": "OFF PRICE",
+                        "cloudshop_id": "667a67de8d522538ee0ba760",
+                        "created": "2024-06-25T15:46:54",
+                        "updated": "2024-07-29T18:04:33",
+                        "working_hours": "09:00 - 21:00"
+                    },
+                    {
+                        "id": 52,
+                        "name": "Nest Home",
+                        "cloudshop_id": "66bf4c1c56115d41810faa97",
+                        "created": "2024-08-16T21:54:52",
+                        "updated": "2025-02-02T17:23:30",
+                        "working_hours": "09:00 - 21:00"
+                    }
+                ],
+                "main_store": {
+                    "id": 1,
+                    "name": "Балапан Ош №1",
+                    "cloudshop_id": "57c09c3d3ce7d59d048b46ca",
+                    "created": "2016-08-27T04:45:01",
+                    "updated": "2024-04-07T17:40:54",
+                    "working_hours": "09:00 - 21:00"
+                },
+                "group": null,
+                "created": "2024-04-22T18:34:06.382304",
+                "updated": "2025-02-17T09:32:41.934139"
+            }
+        ]
+    }
+}

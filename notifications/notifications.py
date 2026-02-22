@@ -5,7 +5,7 @@ from utils.config import COMMON_HEADERS, COMMON_URL, BASE_URL
 from utils.common import calculate_time
 
 
-def load_notifications_from_server():
+def load_notifications_from_server(from_date, to_date):
     print("Loading notifications from server...")
     params = {
         "path": "/57c09c3b3ce7d59d048b46c9/notifications/0/10000",
@@ -84,12 +84,12 @@ def dump_notifications():
 def scrape_notifications(from_date, to_date):
     print("=================== SCRAPING NOTIFICATIONS STARTED ==============")
     ##### LOAD NOTIFICATIONS #####
-    # status = 0
-    # status = load_notifications_from_server(from_date, to_date)
-    # if status == 0:
-    #     print("Loading notifications from server failed")
-    # else:
-    #     print("Loading notifications from server finished")
+    status = 0
+    status = load_notifications_from_server(from_date, to_date)
+    if status == 0:
+        print("Loading notifications from server failed")
+    else:
+        print("Loading notifications from server finished")
 
 
     # ##### CLEANING NOTIFICATIONS #####
@@ -107,3 +107,11 @@ def scrape_notifications(from_date, to_date):
     #     print("Dumping notifications failed")
     # else:
     #     print("Dumping notifications finished")
+
+
+    # run if main
+# if __name__ == "__main__":
+#     import datetime as dt
+#     from_date = dt.datetime.now() - dt.timedelta(days=1)
+#     to_date = dt.datetime.now()
+#     scrape_notifications(from_date, to_date)

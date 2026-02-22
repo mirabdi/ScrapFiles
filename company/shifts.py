@@ -174,12 +174,17 @@ def scrape_shifts(skip_load, from_date, to_date):
     print("=================== SCRAPING SHIFTS STARTED ==============")
     if not skip_load:
         ##### LOAD SHIFTS #####
-        status = 0
-        status = load_shifts_from_server(from_date, to_date)
-        if status == 0:
-            print("Loading shifts from server failed")
-        else:
-            print("Loading shifts from server finished")
+        while True:
+            try:
+                status = 0
+                status = load_shifts_from_server(from_date, to_date)
+                if status == 0:
+                    print("Loading shifts from server failed")
+                else:
+                    print("Loading shifts from server finished")
+                break
+            except Exception as e:
+                print(f"An error occurred while loading shifts: {e}. Retrying ....")
 
         ##### COMPLETING SHIFTS #####
         status = 0

@@ -1,26 +1,42 @@
 import json
+import time
 import requests
 from utils.common import write_to_json, read_json, calculate_time, clean_phone
 from utils.config import COMMON_HEADERS, COMMON_URL, BASE_URL
 
 
 def load_clients():
-    params = {
-        "path": "/data/57c09c3b3ce7d59d048b46c9/clients/?limit=100000&offset=0",
-        "api": "v3",
-        "timezone": "32400",
-    }
+    offset = 0
+    limit = 10000
+    all_clients = []
 
-    response = requests.get(COMMON_URL, headers=COMMON_HEADERS, params=params)
+    while True:
+        params = {
+            "path": f"/data/57c09c3b3ce7d59d048b46c9/clients/?limit={limit}&offset={offset}",
+            "api": "v3", 
+            "timezone": "32400",
+        }
+        while True:
+            try:
+                response = requests.get(COMMON_URL, headers=COMMON_HEADERS, params=params)
 
+                if response.status_code == 200:
+                    batch = json.loads(response.text)['data']
+                    all_clients.extend(batch)
+                    offset += limit
+                    break
+            except Exception as e:
+                print(f"Error loading clients, retrying...: {e}")
+                time.sleep(5)
 
-    if response.status_code == 200:
-        loaded_clients = json.loads(response.text)['data']
-        with open(f'data/raw/raw_clients.json', 'w', encoding='utf-8') as f:
-            json.dump(loaded_clients, f, ensure_ascii=False)
-        return 1
-    else:
-        return (0, f"Request failed with status code: {response.status_code}")
+        if len(batch) < limit:
+            break
+
+    with open(f'data/raw/raw_clients.json', 'w', encoding='utf-8') as f:
+        json.dump(all_clients, f, ensure_ascii=False)
+    
+    print(f"Loaded {len(all_clients)} clients")
+    return 1
 
 
 def update_client(cloudshop_id, name):
@@ -84,6 +100,8 @@ def clean_clients():
     cnt = 0
     for thing in responses:
         cloudshop_id = thing['_id']
+        # if cloudshop_id =='67c6b226dd007c347d433ed5':
+        #     continue
         name = thing.get('name', None)
         if name:
             name = name.strip()
@@ -106,6 +124,8 @@ def clean_clients():
 
         if bonus_balance is None or bonus_spent is None or cashback_rate is None:
             raise Exception(f"Failed to clean client {name} ID:{cloudshop_id} with missing data")
+        # if bonus_balance is list, get first item
+        bonus_balance = bonus_balance[0] if isinstance(bonus_balance, list) else bonus_balance
         phone = clean_phone(phone)
         client = {
             'cloudshop_id': cloudshop_id,
@@ -138,7 +158,8 @@ def merge_clients():
     
     # Dictionary to store merged clients by phone number
     merged_clients = {}
-    
+    duplicates = set()
+    merged_count = 0
     for client in cleaned_clients:
         phone = client.get('phone')
         if not phone:
@@ -146,6 +167,8 @@ def merge_clients():
         
         if phone in merged_clients:
             # If the phone number already exists, merge the bonus balances and spent
+            duplicates.add(phone)
+            merged_count += 1
             merged_clients[phone]['bonus_balance'] += client.get('bonus_balance', 0)
             merged_clients[phone]['bonus_spent'] += client.get('bonus_spent', 0)
         else:
@@ -165,16 +188,57 @@ def merge_clients():
                 'cashback_rate': client.get('cashback_rate'),
                 'birthday': client.get('birthday')
             }
-
     # Convert the merged_clients dictionary back to a list
     merged_clients_list = list(merged_clients.values())
 
     # Save the merged clients data to a new file (optional)
     with open(f'data/clean/clean_clients.json', 'w', encoding='utf-8') as f:
         json.dump(merged_clients_list, f, ensure_ascii=False, indent=4)
-
+    print(f"Merged {merged_count} clients")
+    
+    st = "["
+    for dup in duplicates:
+        st += f'"{dup}", '
+    st += "]"
+    print(st)
     return 1
 
+
+def break_clients():
+    # Load the cleaned clients JSON data
+    with open('data/clean/clean_clients.json', 'r', encoding='utf-8') as f:
+        clients = json.load(f)
+
+    phone_counts = {}
+    changes = 0
+
+    for client in clients:
+        phone = client.get('phone')
+
+        # Skip clients without a phone number
+        if not phone:
+            continue
+        
+        # Count occurrences
+        if phone not in phone_counts:
+            phone_counts[phone] = 0
+        else:
+            phone_counts[phone] += 1
+
+            # Create new unique phone number
+            new_phone = f"+{phone_counts[phone]}{phone}"
+
+            # Assign new phone
+            client['phone'] = new_phone
+            changes += 1
+
+    # Save updated clients
+    with open('data/clean/clean_clients.json', 'w', encoding='utf-8') as f:
+        json.dump(clients, f, ensure_ascii=False, indent=4)
+
+    print(f"Changed {changes} duplicated phone numbers.")
+
+    return 1
 
 def dump_clients(create_break):
     with open(f'data/clean/clean_clients.json', 'r', encoding='utf-8') as f:
@@ -241,6 +305,7 @@ def scrape_clients(skip_load, create_break=True):
         print("2) Cleaned...")
 
     status = merge_clients()
+    # status = break_clients()
     # return
 
     status = dump_clients(create_break)

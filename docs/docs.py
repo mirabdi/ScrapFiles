@@ -40,11 +40,11 @@ def get_consultant(doc):
         #         store_name = details["store_name"]
         #     if details["city"] == store_city and consultant_name in details["versions"]:
         #         return username
-        print(f"Store name {store_name}: store id: {store_id} with name version '{consultant_name}' matches multiple entries. {comment}")
+        # print(f"Store name {store_name}: store id: {store_id} with name version '{consultant_name}' matches multiple entries. {comment}")
         return None
     elif len(matches) == 1:
         return matches[0]
-    print(f"Store name {store_name}: store id: {store_id} with name version '{consultant_name}' does not match any existing entry. {comment}")
+    # print(f"Store name {store_name}: store id: {store_id} with name version '{consultant_name}' does not match any existing entry. {comment}")
     return None
 
 
@@ -81,7 +81,7 @@ def load_docs_from_text():
     raw_docs = []
     for cloudshop_id in cloudshop_ids:
         raw_docs.append({'_id': cloudshop_id})
-    with open(f'data/raw/raw_docs.json', 'w', encoding='utf-8') as f:
+    with open(f'data/raw/raw_docs_{0}.json', 'w', encoding='utf-8') as f:
         json.dump(raw_docs, f, ensure_ascii=False)
 
 
@@ -115,7 +115,7 @@ def load_docs_from_server_without_jump(id):
 
 
 
-def load_docs_from_server(from_date, to_date, id):
+def load_docs_from_server(from_date, to_date, id, type=None):
     print("Loading docs from server...")
     params = {
         "path": "/search/docs2/57c09c3b3ce7d59d048b46c9/0/100000",
@@ -124,17 +124,26 @@ def load_docs_from_server(from_date, to_date, id):
     }
 
     start_date = from_date
-    delta = dt.timedelta(days=20)
+    delta = dt.timedelta(days=4)
 
     loaded_docs = []
 
     while start_date < to_date:
         end_date = min(start_date + delta, to_date)
+        if end_date > dt.datetime(2023, 1, 1):
+            delta = dt.timedelta(days=100)
+        elif end_date > dt.datetime(2024, 1, 1):
+            delta = dt.timedelta(days=30)
         payload = {
             "start": int(start_date.timestamp()),
             "end": int(end_date.timestamp()),
             # "type": "purchases",
+            # "type": "movement",
+            # "type": "changes",
+            # "sub_type": "inventory",
         }
+        if type is not None:
+            payload["type"] = type
         response = requests.post(
             COMMON_URL, json=payload, params=params, headers=COMMON_HEADERS)
         if response.status_code == 200:
@@ -142,7 +151,7 @@ def load_docs_from_server(from_date, to_date, id):
             data = json.loads(response.text)['data']
             loaded_docs.extend(data)
         else:
-            print("Request failed with status code:", response.status_code)
+            print("Request failed with status code:", response.status_code, response.text)
         start_date = end_date
         print(end_date)
 
@@ -167,7 +176,9 @@ def parallel_complete_docs(id):
     # print(f"Out of {len(loaded_docs)} docs,\n {len(already_completed)} docs are completed. {len(remaining_docs)} are remaining")
     
     # Fetch the remaining documents in parallel
+    print(f"Completing {len(loaded_docs)} docs")
     remaining_docs = [doc['_id'] for doc in loaded_docs]
+    
     completed_docs = []
     completed_count = 0
     file_no = 0
@@ -179,7 +190,7 @@ def parallel_complete_docs(id):
                 doc = future.result()
                 completed_docs.append(doc)
                 completed_count += 1
-                if completed_count % 1000 == 0:
+                if completed_count % 100 == 0:
                     print(f"{completed_count} completed")
                     with open(f'data/completed/completed_docs_{id}_{file_no}.json', 'w', encoding='utf-8') as f:
                         json.dump(completed_docs, f, ensure_ascii=False)
@@ -195,6 +206,18 @@ def parallel_complete_docs(id):
             completed_docs.extend(json.load(f))
         os.remove(f'data/completed/completed_docs_{id}_{i}.json')
 
+    completed_docs = sorted(completed_docs, key=lambda x: x['date'])
+    print(f"Saving {len(completed_docs)} completed docs")
+    with open(f'data/completed/completed_docs_{id}.json', 'w', encoding='utf-8') as f:
+        json.dump(completed_docs, f, ensure_ascii=False)
+    return 1
+
+def combine_files(id, file_no):
+    completed_docs = []
+    for i in range(file_no):
+        with open(f'data/completed/completed_docs_{id}_{i}.json', 'r', encoding='utf-8') as f:
+            completed_docs.extend(json.load(f))
+        # os.remove(f'data/completed/completed_docs_{id}_{i}.json')
     completed_docs = sorted(completed_docs, key=lambda x: x['date'])
     print(f"Saving {len(completed_docs)} completed docs")
     with open(f'data/completed/completed_docs_{id}.json', 'w', encoding='utf-8') as f:
@@ -234,6 +257,7 @@ def clean_docs(id):
         completed_docs = json.load(f)
     # response_data = read_json('data/raw/raw_docs.json')
 
+    print(f"Cleaning {len(completed_docs)} docs")
     cleaned_docs = []
     cnt = 0
     stats = {
@@ -247,8 +271,8 @@ def clean_docs(id):
     for thing in completed_docs:
         doc = {}
         ok = False
-        curr = thing['_id']
-        if curr in  ['679d954dd411fd1cfe7d9468', '679d29fe3eb8a4016e1d8fcf', '679d234bab82a70369535cdd']:
+        if 'products' not in thing:
+            print(thing['_id'])
             continue
         if thing['type'] == 'sales':
             doc = handle_sale(thing)
@@ -283,6 +307,7 @@ def clean_docs(id):
             doc['bonus_spent'] = thing.get('bonus_spent', 0)
             doc['bonus_discount'] = thing.get('bonus_discount', 0)
             doc['status'] = thing['status']
+            doc['deleted'] = thing['deleted']
             comment = thing.get('comment', '')
             if not comment:
                 comment = ''
@@ -296,6 +321,8 @@ def clean_docs(id):
 
             cleaned_docs.append(doc)
             cnt += 1
+        else:
+            print('Something went wrong with', thing['_id'])
     # sort cleaned docs by date
     cleaned_docs = sorted(cleaned_docs, key=lambda x: x['date'])
     with open(f"data/clean/clean_docs_{id}.json", 'w', encoding='utf-8') as f:
@@ -319,6 +346,8 @@ def dump_docs(id, base_url=BASE_URL):
     error_count = 0
     docs_data = []
     for i, doc in enumerate(cleaned_docs):
+        if len(doc['positions']) > 100:
+            doc['positions'] = doc['positions'][:100]
         docs_data.append(doc)
         if i % 10 == 9:
             try:
@@ -369,30 +398,46 @@ def dump_docs(id, base_url=BASE_URL):
     return (1, stats)
 
 
-def scrape_docs(skip_load, from_date, to_date, id=0):
+def scrape_docs(skip_load, from_date, to_date, id=0, file_no=0, type=None):
     print("================ DOCS ================")
 
     ###### LOADING DOCS #######
     # skip_load = True
-    if not skip_load:
-        status = 1
-        # status = load_docs_from_server_without_jump(id)
-        status = load_docs_from_server(from_date, to_date, id)
-        if status == 0:
-            print("Failed to load docs")
-            return 0
-        else:
-            print("1) Loaded...")
+    while True:
+        try:
+            if not skip_load:
+                status = 1
+                # status = load_docs_from_server_without_jump(id)
+                status = load_docs_from_server(from_date, to_date, id, type)
+                # status = load_docs_from_text()
+                if status == 0:
+                    print("Failed to load docs")
+                    return 0
+                else:
+                    print("1) Loaded...")
 
-        ###### COMPLETING DOCS #######
-        # In the first step, positions are not provided (docs are incomplete). This step gets all docs with positions
-        status = 1
-        status = parallel_complete_docs(id)
-        if status == 0:
-            print("Failed to complete docs")
-            return 0
-        else:
-            print("2) Completed...")
+                ###### COMPLETING DOCS #######
+                # In the first step, positions are not provided (docs are incomplete). This step gets all docs with positions
+                if file_no == 0:
+                    status = 1
+                    status = parallel_complete_docs(id)
+                    if status == 0:
+                        print("Failed to complete docs")
+                        return 0
+                    else:
+                        print("2) Completed...")
+            if file_no != 0:
+                status = 1
+                status = combine_files(id, file_no)
+                if status == 0:
+                    print("Failed to combine files")
+                    return 0
+                else:
+                    print("2) Combined...")
+            break
+        except Exception as e:
+            print(f"An error occurred during loading/completing docs: {e}. Retrying...")
+            continue
     ###### CLEANING DOCS #######
     status = 1
     status, stats = clean_docs(id)

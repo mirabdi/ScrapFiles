@@ -4,6 +4,16 @@
         "store_id": "57c09c3d3ce7d59d048b46ca",
         "store_name": "Балапан Ош №1"
     },
+    "syrgagul": {
+        "versions": ["Сыргагул", "сыргагул", "СЫРГАГУЛ"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
+    "aiturgan": {
+        "versions": ["Айтурган", "айтурган", "АИТУРГАН"],
+        "store_id": "57c09c3d3ce7d59d048b46ca",
+        "store_name": "Балапан Ош №1"
+    },
     "munara": {
         "versions": ["Мунара", "мунара", "МУНАРА"],
         "store_id": "57c09c3d3ce7d59d048b46ca",

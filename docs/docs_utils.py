@@ -14,6 +14,10 @@ stores = {
         "name": "Балапан Анар №4",
         "city": "Osh",
     },
+    "696b7a9e09ecb41f3c428b90": {
+        "name": "№02 Osnovnoy sklad  Nesthome",
+        "city": "Osh",
+    },
     "6534e92e6b78a2722e0a1b13": {
         "name": "Балапан Фрунзенский №7",
         "city": "Osh",
@@ -49,6 +53,51 @@ stores = {
 }
 
 emps = {
+    "syrgagul": {
+        "versions": ["Сыргагул", "сыргагул", "СЫРГАГУЛ"],
+    },
+    "aiturgan": {
+        "versions": ["Айтурган", "айтурган", "АИТУРГАН"],
+    },
+    "aidai": {
+        "versions": ["Айдай", "айдай", "АЙДАЙ"],
+    },
+    "ainazik": {
+        "versions": ["Айназик", "айназик", "АЙНАЗИК"],
+    },
+    "hafiza": {
+        "versions": ["Хафиза", "хафиза", "ХАФИЗА"],
+    },
+    "jumagul": {
+        "versions": ["Жумагул", "жумагул", "ЖУМАГУЛ"],
+    },
+    "samara": {
+        "versions": ["Самара", "самара", "САМАРА"],
+    },
+    "aksana": {
+        "versions": ["Аксана", "аксана", "АКСАНА"],
+    },
+    "aielita": {
+        "versions": ["Айелита", "айелита", "АЙЕЛИТА", "Айэлита", "айэлита", "айэлитаа"],
+    },
+    "mariam": {
+        "versions": ["Мариам", "мариам", "МАРИАМ", "мариамм"],
+    },
+    "akmoor": {
+        "versions": ["Акмоор", "акмоор", "АКМООР", "акмоорр"],
+    },
+    "mukaram":{
+        "versions": ["Мукарам", "мукарам", "МУКАРАМ", "мукрам", "мукрамм"],
+    },
+    "adyl": {
+        "versions": ["Адыл", "адыл", "АДЫЛ", "адылл"],
+    },
+    "kurmanjan":{
+        "versions": ["Курманжан", "курманжан", "КУРМАНЖАН", "курманжанн"],
+    },
+    "saikal": {
+        "versions": ["Сайкал", "сайкал", "САЙКАЛ", "сайкаал", "айкал"],
+    },
     "meridina": {
         "versions": ["Меридина", "меридина", "МЕРИДИНА", "меридин", "меридинаа"],
     },
@@ -71,7 +120,7 @@ emps = {
         "versions": ["Камилла стажер", "Камилла", "камилла", "Камилла стажер Б1", "камила", "Камила"],
     },
     "kanymgul": {
-        "versions": ["Канымгул стажер Б1", "Канымгул", "Канымгул стажер", "канымгул"]
+        "versions": ["Канымгул стажер Б1", "Канымгул", "Канымгул стажер", "канымгул", "КАнымгул"]
     },
     "elvira": {
         "versions": ["Эльвира стажер Б1", "Эльвира", "Эльвира стажер", "эльвира"],
@@ -128,7 +177,7 @@ emps = {
         "city": "Osh"
     },
     "nuriza": {
-        "versions": ["Нуриза", "нуриза", "НУРИЗА"],
+        "versions": ["Нуриза", "нуриза", "НУРИЗА", "нУРИЗА"],
         "store_id": "667a67de8d522538ee0ba760",
         "store_name": "Балапан Ош №1",
         "city": "Osh"
@@ -406,20 +455,20 @@ def handle_sale(thing):
         if thing['type'] == 'inventory':
             product = {
                 'cloudshop_id': cloudshop_id,
-                'quantity': quantity,
-                'sum': abs(sum),
-                'sub': abs(sub),
-                'price': abs(price),
+                'quantity': int(quantity),
+                'sum': sum,
+                'sub': sub,
+                'price': price,
                 'discount_sum': discount_sum,
                 'discount_percent': discount_percent,
             }
         else:
             product = {
                 'cloudshop_id': cloudshop_id,
-                'quantity': abs(quantity),
-                'sum': abs(sum),
-                'sub': abs(sub),
-                'price': abs(price),
+                'quantity': int(quantity),
+                'sum': sum,
+                'sub': sub,
+                'price': price,
                 'discount_sum': discount_sum,
                 'discount_percent': discount_percent,
             }
@@ -455,10 +504,10 @@ def handle_return_sale(thing):
         discount_percent = item['discount_percent']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
-            'sum': abs(sum),
-            'sub': abs(sub),
-            'price': abs(price),
+            'quantity': int(quantity),
+            'sum': sum,
+            'sub': sub,
+            'price': price,
             'discount_sum': discount_sum,
             'discount_percent': discount_percent,
         }
@@ -492,10 +541,10 @@ def handle_purchase(thing):
         price = item['price']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
-            'sum': abs(sum),
-            'sub': abs(sub),
-            'price': abs(price),
+            'quantity': int(quantity),
+            'sum': sum,
+            'sub': sub,
+            'price': price,
         }
         products.append(product)
     response['positions'] = products
@@ -527,10 +576,10 @@ def handle_return_purchase(thing):
         price = item['price']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
-            'sum': abs(sum),
-            'sub': abs(sub),
-            'price': abs(price),
+            'quantity': quantity,
+            'sum': sum,
+            'sub': sub,
+            'price': price,
         }
         products.append(product)
     response['positions'] = products
@@ -565,7 +614,7 @@ def handle_movement(thing):
         product = {
             'cloudshop_id': cloudshop_id,
             'quantity': abs(quantity),
-            'price': abs(price),
+            'price': price,
         }
         products.append(product)
     response['positions'] = products
@@ -595,8 +644,8 @@ def handle_change(thing):
         price = item['price']
         product = {
             'cloudshop_id': cloudshop_id,
-            'quantity': abs(quantity),
-            'price': abs(price),
+            'quantity': quantity,
+            'price': price,
         }
         products.append(product)
     response['positions'] = products

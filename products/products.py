@@ -55,6 +55,11 @@ def clean_products():
         categories = None
         try:
             categories = thing['categories']
+            categories = [
+                s.capitalize() 
+                for s in categories
+                if 'евочк' not in s and 'альчик' not in s
+            ]
         except:
             pass
         supplier_id = None
@@ -89,6 +94,12 @@ def clean_products():
             pics = []
         price = price if price else 0
         purchase = purchase if purchase else 0
+        quantity = 0
+        stock = thing.get('stock', None)
+        if stock:
+            for k, v in stock.items():
+                quantity += v
+
         product = {
             'cloudshop_id': cloudshop_id,
             'name': name,
@@ -102,7 +113,8 @@ def clean_products():
             'discount': discount,
             'created': created,
             'pics': pics,
-            'is_added': True
+            'is_added': True,
+            'quantity': quantity
         }
         cleaned_products.append(product)
         cnt += 1
@@ -163,17 +175,22 @@ def dump_products(create_break):
 def scrape_products(skip_load, create_break=False):
     print("================ PRODUCTS ================")
     if not skip_load:
-        status = load_products()
-        if status == 0:
-            print("Failed to load products")
-            return 0
-        else:
-            print("1) Loaded...")
-        status = clean_products()
-        if status == 0:
-            print("Failed to clean products")
-        else:
-            print("2) Cleaned...")
+        while True: 
+            try:
+                status = load_products()
+                if status == 0:
+                    print("Failed to load products")
+                    return 0
+                else:
+                    print("1) Loaded...")
+                break
+            except Exception as e:
+                print(f"An error occurred while loading products: {e}. Retrying ....")
+    status = clean_products()
+    if status == 0:
+        print("Failed to clean products")
+    else:
+        print("2) Cleaned...")
     status, stats = dump_products(create_break)
     if status == 0:
         print("Failed to dump products")
