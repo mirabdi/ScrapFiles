@@ -1,3 +1,5 @@
 data
 kvant
 venv
+*.pyc
+*/__pycache__/

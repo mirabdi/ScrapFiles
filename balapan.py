@@ -39,14 +39,14 @@ def main(skip_load, use_notifications=False):
         return
     
     # Legacy bulk sync approach
-    from_date = dt.datetime(2026, 2, 20)
+    from_date = dt.datetime(2026, 3, 1)
     to_date = dt.datetime.now()
     
 
     
 # 
-    # scrape_shifts(skip_load, from_date, to_date)  
-    # scrape_products(skip_load, create_break=False) 
+    scrape_shifts(skip_load, from_date, to_date)  
+    scrape_products(skip_load, create_break=False) 
     
     scrape_clients(skip_load, create_break=False)   
     scrape_suppliers()
